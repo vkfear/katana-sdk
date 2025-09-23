@@ -22,9 +22,11 @@ class Command(BaseCommand):
         folders = {
             "models": os.path.join(base_app, "models"),
             "api": os.path.join(base_app, "api"),
-            "schemas": os.path.join(base_app, "schemas"),
-            "validations": os.path.join(base_app, "validations"),
-            "accessibility": os.path.join(base_app, "accessibility"),
+            "v1": os.path.join(base_app,"api","v1"),
+            "accessibility": os.path.join(base_app,"api","accessibility"),
+            "schemas": os.path.join(base_app, "api","v1","schemas"),
+            "custom_validations": os.path.join(base_app,"api","v1","schemas","custom_validations"),
+
         }
 
         # Ensure directories exist
@@ -34,9 +36,9 @@ class Command(BaseCommand):
         # File paths
         files_to_create = {
             "model": os.path.join(folders["models"], f"{file_name}.py"),
-            "api": os.path.join(folders["api"], f"{file_name}.py"),
+            "v1": os.path.join(folders["v1"], f"{file_name}.py"),
             "schema": os.path.join(folders["schemas"], f"{file_name}.py"),
-            "validation": os.path.join(folders["validations"], f"{file_name}.py"),
+            "validation": os.path.join(folders["custom_validations"], f"{file_name}.py"),
             "accessibility": os.path.join(folders["accessibility"], f"{file_name}.py"),
         }
 
@@ -48,9 +50,9 @@ class {model_name}(models.Model):
     pass
 """
 
-        # Default boilerplate for other files
+        
         empty_content = "# Auto-generated file\n"
-
+ 
         created_files = []
 
         for key, path in files_to_create.items():
