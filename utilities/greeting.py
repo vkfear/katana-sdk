@@ -1,6 +1,6 @@
 import argparse
 
-parser = argparse.ArgumentParser(description='A script that greets a user.')
+parser = argparse.ArgumentParser(description=' greeting a user.')
 
 parser.add_argument('name', type=str, help='The name of the person to greet.')
 
