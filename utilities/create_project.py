@@ -1,4 +1,4 @@
-# utilities/create_project.py
+
 import os
 import sys
 import subprocess
